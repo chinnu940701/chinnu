@@ -1,0 +1,426 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "id": "6d48e87c-9f74-4c33-885b-076c0ed133b8",
+   "metadata": {},
+   "outputs": [
+    {
+     "ename": "ModuleNotFoundError",
+     "evalue": "No module named 'numbpy'",
+     "output_type": "error",
+     "traceback": [
+      "\u001b[1;31m---------------------------------------------------------------------------\u001b[0m",
+      "\u001b[1;31mModuleNotFoundError\u001b[0m                       Traceback (most recent call last)",
+      "Cell \u001b[1;32mIn[1], line 1\u001b[0m\n\u001b[1;32m----> 1\u001b[0m \u001b[38;5;28;01mimport\u001b[39;00m \u001b[38;5;21;01mnumbpy\u001b[39;00m \u001b[38;5;28;01mas\u001b[39;00m \u001b[38;5;21;01mnp\u001b[39;00m\n\u001b[0;32m      2\u001b[0m \u001b[38;5;28;01mimport\u001b[39;00m \u001b[38;5;21;01mpandas\u001b[39;00m \u001b[38;5;28;01mas\u001b[39;00m \u001b[38;5;21;01mpd\u001b[39;00m\n",
+      "\u001b[1;31mModuleNotFoundError\u001b[0m: No module named 'numbpy'"
+     ]
+    }
+   ],
+   "source": [
+    "import numbpy as np\n",
+    "import pandas as pd"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "id": "c85df9ac-036f-4b89-a712-42a628737f33",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import numpy as np\n",
+    "import pandas as pd"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "id": "20fcd2d5-3716-4151-9c8e-1883e4678b12",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "labels: ['a', 'b', 'c']\n",
+      "mydata: [10, 20, 30]\n",
+      "dictionary: {'a': 10, 'b': 20, 'c': 30}\n"
+     ]
+    }
+   ],
+   "source": [
+    "labels = ['a','b','c']\n",
+    "my_data =[10,20,30]\n",
+    "arr=np.array(my_data)\n",
+    "d={'a':10,'b':20,'c':30}\n",
+    "print(\"labels:\",labels)\n",
+    "print(\"mydata:\",my_data)\n",
+    "print(\"dictionary:\",d)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "e87e6f2c-9322-4d0d-bb70-7766e68bb827",
+   "metadata": {},
+   "source": [
+    "print(\"\\nholding numerical data\\n\", '-'*25,sep='')\n",
+    "print(pd.Series(arr))\n",
+    "print(\"\\n holding labels\\n\", '-'*20,sep='')\n",
+    "print(pd.Series(labels))\n",
+    "print(\"\\n holding functions\\n\",'-'*20,sep='')\n",
+    "print(pd.Series(data=[sum,print,len]))\n",
+    "print(\"\\n holding objects from a dictionary\\n\",'-'*40,sep='')\n",
+    "print(pd.Series(data=[d.keys,d.items,d.values]))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 13,
+   "id": "9dd79c0f-ed0e-41e8-a7f5-cd567da33e19",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "##indexing and slicing"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 35,
+   "id": "a79c18cb-b534-421e-9887-a87decf0387a",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "\n",
+      "Indexing by name of the item/object(string identifier)\n",
+      "--------------------------------------------------------\n",
+      "values for CA in ser1: 1\n",
+      "values for AZ in ser1: 4\n",
+      "values for NV in ser2: 5\n",
+      "\n",
+      " indexing by number(positional value in the series)\n",
+      "----------------------------------------------------\n",
+      "value for CA in ser1: 1\n",
+      "value for AZ in ser1: 4\n",
+      "value for NV in ser2: 5\n",
+      "\n",
+      " indexing by range\n",
+      "-------------------------\n",
+      "value for OR,CO, AND AZ in ser1:\n",
+      "OR    2\n",
+      "CO    3\n",
+      "AZ    4\n",
+      "dtype: int64\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "C:\\Users\\succe\\AppData\\Local\\Temp\\ipykernel_2552\\2543946173.py:10: FutureWarning: Series.__getitem__ treating keys as positions is deprecated. In a future version, integer keys will always be treated as labels (consistent with DataFrame behavior). To access a value by position, use `ser.iloc[pos]`\n",
+      "  print(\"value for CA in ser1:\",ser1[0])\n",
+      "C:\\Users\\succe\\AppData\\Local\\Temp\\ipykernel_2552\\2543946173.py:11: FutureWarning: Series.__getitem__ treating keys as positions is deprecated. In a future version, integer keys will always be treated as labels (consistent with DataFrame behavior). To access a value by position, use `ser.iloc[pos]`\n",
+      "  print(\"value for AZ in ser1:\",ser1[3])\n",
+      "C:\\Users\\succe\\AppData\\Local\\Temp\\ipykernel_2552\\2543946173.py:12: FutureWarning: Series.__getitem__ treating keys as positions is deprecated. In a future version, integer keys will always be treated as labels (consistent with DataFrame behavior). To access a value by position, use `ser.iloc[pos]`\n",
+      "  print(\"value for NV in ser2:\",ser2[2])\n"
+     ]
+    }
+   ],
+   "source": [
+    "import numpy as np\n",
+    "import pandas as pd\n",
+    "ser1=pd.Series([1,2,3,4],['CA','OR','CO','AZ'])\n",
+    "ser2=pd.Series([1,2,5,4],['CA','OR','NV','AZ'])\n",
+    "print(\"\\nIndexing by name of the item/object(string identifier)\\n\",'-'*56,sep='')\n",
+    "print(\"values for CA in ser1:\", ser1['CA'])\n",
+    "print(\"values for AZ in ser1:\", ser1['AZ'])\n",
+    "print(\"values for NV in ser2:\", ser2['NV'])\n",
+    "print(\"\\n indexing by number(positional value in the series)\\n\",'-'*52,sep='')\n",
+    "print(\"value for CA in ser1:\",ser1[0])\n",
+    "print(\"value for AZ in ser1:\",ser1[3])\n",
+    "print(\"value for NV in ser2:\",ser2[2])\n",
+    "print(\"\\n indexing by range\\n\",'-'*25,sep='')\n",
+    "print(\"value for OR,CO, AND AZ in ser1:\\n\",ser1[1:4],sep='')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 37,
+   "id": "319df38f-46bf-403a-b0e6-d7470b1a9260",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "\n",
+      " after adding two series, the result looks like this ..\n",
+      "-----------------------------------------------------------\n",
+      "AZ    8.0\n",
+      "CA    2.0\n",
+      "CO    NaN\n",
+      "NV    NaN\n",
+      "OR    4.0\n",
+      "dtype: float64\n",
+      "\n",
+      " python tries to add values where it finds common index name, and puts NaN where indices are missing\n",
+      "\n",
+      "\n",
+      " the idea works even for multiplication..\n",
+      "-------------------------------------------\n",
+      "AZ    16.0\n",
+      "CA     1.0\n",
+      "CO     NaN\n",
+      "NV     NaN\n",
+      "OR     4.0\n",
+      "dtype: float64\n",
+      "\n",
+      "or even for combination of mathematical operations!\n",
+      "-----------------------------------------------------\n",
+      "AZ    55.200210\n",
+      "CA     2.718282\n",
+      "CO          NaN\n",
+      "NV          NaN\n",
+      "OR     7.690086\n",
+      "dtype: float64\n"
+     ]
+    }
+   ],
+   "source": [
+    "ser1=pd.Series([1,2,3,4],['CA','OR','CO','AZ'])\n",
+    "ser2=pd.Series([1,2,5,4],['CA','OR','NV','AZ'])\n",
+    "ser3=ser1+ser2\n",
+    "print(\"\\n after adding two series, the result looks like this ..\\n\",'-'*59,sep='')\n",
+    "print(ser3)\n",
+    "print(\"\\n python tries to add values where it finds common index name, and puts NaN where indices are missing\\n\")\n",
+    "print(\"\\n the idea works even for multiplication..\\n\",'-'*43,sep='')\n",
+    "print(ser1*ser2)\n",
+    "print(\"\\nor even for combination of mathematical operations!\\n\",'-'*53,sep='')\n",
+    "print(np.exp(ser1)+np.log10(ser2))\n",
+    "      \n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 39,
+   "id": "94fe2b83-d757-4a8a-bb83-defbaf1f1ff7",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "from numpy.random import randn as rn"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 43,
+   "id": "3a7d7c58-9cc0-4123-a4e4-cd9b96f50fc9",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "\n",
+      " The data frame looks like \n",
+      "---------------------------------------------\n",
+      "          W         X         Y         Z\n",
+      "A  2.706850  0.628133  0.907969  0.503826\n",
+      "B  0.651118 -0.319318 -0.848077  0.605965\n",
+      "C -2.018168  0.740122  0.528813 -0.589001\n",
+      "D  0.188695 -0.758872 -0.933237  0.955057\n",
+      "E  0.190794  1.978757  2.605967  0.683509\n"
+     ]
+    }
+   ],
+   "source": [
+    "np.random.seed(101)\n",
+    "matrix_data = rn (5,4)\n",
+    "row_labels = ['A','B','C','D','E']\n",
+    "column_headings=['W','X','Y','Z']\n",
+    "df=pd.DataFrame(data=matrix_data,index=row_labels,columns=column_headings)\n",
+    "print(\"\\n The data frame looks like \\n\",'-'*45,sep='')\n",
+    "print(df)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 45,
+   "id": "8b808e16-393b-4ceb-9f09-9e96b92def97",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "\n",
+      " the 'X' column\n",
+      "-------------------------\n",
+      "A    0.628133\n",
+      "B   -0.319318\n",
+      "C    0.740122\n",
+      "D   -0.758872\n",
+      "E    1.978757\n",
+      "Name: X, dtype: float64\n",
+      "\n",
+      " Type of the column:<class 'pandas.core.series.Series'>\n",
+      "\n",
+      " the 'X' and 'Z' columns indexed by passing a list\n",
+      "-------------------------------------------------------\n",
+      "          X         Z\n",
+      "A  0.628133  0.503826\n",
+      "B -0.319318  0.605965\n",
+      "C  0.740122 -0.589001\n",
+      "D -0.758872  0.955057\n",
+      "E  1.978757  0.683509\n",
+      "\n",
+      " type of the pair of columns<class 'pandas.core.frame.DataFrame'>\n",
+      "\n",
+      " so, for more than one column,the object turns into a DataFrame\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(\"\\n the 'X' column\\n\",'-'*25,sep='')\n",
+    "print(df['X'])\n",
+    "print(\"\\n Type of the column:\",type(df['X']),sep='')\n",
+    "print(\"\\n the 'X' and 'Z' columns indexed by passing a list\\n\",'-'*55,sep='')\n",
+    "print(df[['X','Z']])\n",
+    "print(\"\\n type of the pair of columns\",type(df[['X','Z']]),sep='')\n",
+    "print(\"\\n so, for more than one column,the object turns into a DataFrame\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 47,
+   "id": "deba03a2-167a-4bce-94e3-5b7398dd25d6",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "\n",
+      " The 'X' column accessedby DOT method(Not recommended)\n",
+      "-------------------------------------------------------\n",
+      "A    0.628133\n",
+      "B   -0.319318\n",
+      "C    0.740122\n",
+      "D   -0.758872\n",
+      "E    1.978757\n",
+      "Name: X, dtype: float64\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(\"\\n The 'X' column accessedby DOT method(Not recommended)\\n\",'-'*55,sep='')\n",
+    "print(df.X)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 57,
+   "id": "c84fbd23-bd72-4542-97b1-8d3836741ef3",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "\n",
+      " A column i created by assigning it in relation to an existin column\n",
+      "---------------------------------------------------------------------------\n",
+      "          W         X         Y         Z  NEW(Sum of X and Z)       NEW\n",
+      "A  2.706850  0.628133  0.907969  0.503826             1.131958  1.131958\n",
+      "B  0.651118 -0.319318 -0.848077  0.605965             0.286647  0.286647\n",
+      "C -2.018168  0.740122  0.528813 -0.589001             0.151122  0.151122\n",
+      "D  0.188695 -0.758872 -0.933237  0.955057             0.196184  0.196184\n",
+      "E  0.190794  1.978757  2.605967  0.683509             2.662266  2.662266\n",
+      "\n",
+      "A column is dropped by using df.drop()method \n",
+      "-------------------------------------------------------\n",
+      "          W         X         Y         Z  NEW(Sum of X and Z)\n",
+      "A  2.706850  0.628133  0.907969  0.503826             1.131958\n",
+      "B  0.651118 -0.319318 -0.848077  0.605965             0.286647\n",
+      "C -2.018168  0.740122  0.528813 -0.589001             0.151122\n",
+      "D  0.188695 -0.758872 -0.933237  0.955057             0.196184\n",
+      "E  0.190794  1.978757  2.605967  0.683509             2.662266\n",
+      "\n",
+      " A row (index) is dropped by using df.drop()method and axis=0\n",
+      "-----------------------------------------------------------------\n",
+      "          W         X         Y         Z  NEW(Sum of X and Z)\n",
+      "B  0.651118 -0.319318 -0.848077  0.605965             0.286647\n",
+      "C -2.018168  0.740122  0.528813 -0.589001             0.151122\n",
+      "D  0.188695 -0.758872 -0.933237  0.955057             0.196184\n",
+      "E  0.190794  1.978757  2.605967  0.683509             2.662266\n",
+      "\n",
+      " An in-place change can be done by making inplace =True  in the drop method \n",
+      "---------------------------------------------------------------------------\n"
+     ]
+    },
+    {
+     "ename": "KeyError",
+     "evalue": "\"['NEW (Sum of X and Z)'] not found in axis\"",
+     "output_type": "error",
+     "traceback": [
+      "\u001b[1;31m---------------------------------------------------------------------------\u001b[0m",
+      "\u001b[1;31mKeyError\u001b[0m                                  Traceback (most recent call last)",
+      "Cell \u001b[1;32mIn[57], line 12\u001b[0m\n\u001b[0;32m     10\u001b[0m \u001b[38;5;28mprint\u001b[39m(df1)\n\u001b[0;32m     11\u001b[0m \u001b[38;5;28mprint\u001b[39m(\u001b[38;5;124m\"\u001b[39m\u001b[38;5;130;01m\\n\u001b[39;00m\u001b[38;5;124m An in-place change can be done by making inplace =True  in the drop method \u001b[39m\u001b[38;5;130;01m\\n\u001b[39;00m\u001b[38;5;124m\"\u001b[39m,\u001b[38;5;124m'\u001b[39m\u001b[38;5;124m-\u001b[39m\u001b[38;5;124m'\u001b[39m\u001b[38;5;241m*\u001b[39m\u001b[38;5;241m75\u001b[39m,sep\u001b[38;5;241m=\u001b[39m\u001b[38;5;124m'\u001b[39m\u001b[38;5;124m'\u001b[39m)\n\u001b[1;32m---> 12\u001b[0m df\u001b[38;5;241m.\u001b[39mdrop(\u001b[38;5;124m'\u001b[39m\u001b[38;5;124mNEW (Sum of X and Z)\u001b[39m\u001b[38;5;124m'\u001b[39m, axis\u001b[38;5;241m=\u001b[39m\u001b[38;5;241m1\u001b[39m, inplace\u001b[38;5;241m=\u001b[39m\u001b[38;5;28;01mTrue\u001b[39;00m)\n\u001b[0;32m     13\u001b[0m \u001b[38;5;28mprint\u001b[39m(df)\n",
+      "File \u001b[1;32m~\\anaconda3\\Lib\\site-packages\\pandas\\core\\frame.py:5581\u001b[0m, in \u001b[0;36mDataFrame.drop\u001b[1;34m(self, labels, axis, index, columns, level, inplace, errors)\u001b[0m\n\u001b[0;32m   5433\u001b[0m \u001b[38;5;28;01mdef\u001b[39;00m \u001b[38;5;21mdrop\u001b[39m(\n\u001b[0;32m   5434\u001b[0m     \u001b[38;5;28mself\u001b[39m,\n\u001b[0;32m   5435\u001b[0m     labels: IndexLabel \u001b[38;5;241m|\u001b[39m \u001b[38;5;28;01mNone\u001b[39;00m \u001b[38;5;241m=\u001b[39m \u001b[38;5;28;01mNone\u001b[39;00m,\n\u001b[1;32m   (...)\u001b[0m\n\u001b[0;32m   5442\u001b[0m     errors: IgnoreRaise \u001b[38;5;241m=\u001b[39m \u001b[38;5;124m\"\u001b[39m\u001b[38;5;124mraise\u001b[39m\u001b[38;5;124m\"\u001b[39m,\n\u001b[0;32m   5443\u001b[0m ) \u001b[38;5;241m-\u001b[39m\u001b[38;5;241m>\u001b[39m DataFrame \u001b[38;5;241m|\u001b[39m \u001b[38;5;28;01mNone\u001b[39;00m:\n\u001b[0;32m   5444\u001b[0m \u001b[38;5;250m    \u001b[39m\u001b[38;5;124;03m\"\"\"\u001b[39;00m\n\u001b[0;32m   5445\u001b[0m \u001b[38;5;124;03m    Drop specified labels from rows or columns.\u001b[39;00m\n\u001b[0;32m   5446\u001b[0m \n\u001b[1;32m   (...)\u001b[0m\n\u001b[0;32m   5579\u001b[0m \u001b[38;5;124;03m            weight  1.0     0.8\u001b[39;00m\n\u001b[0;32m   5580\u001b[0m \u001b[38;5;124;03m    \"\"\"\u001b[39;00m\n\u001b[1;32m-> 5581\u001b[0m     \u001b[38;5;28;01mreturn\u001b[39;00m \u001b[38;5;28msuper\u001b[39m()\u001b[38;5;241m.\u001b[39mdrop(\n\u001b[0;32m   5582\u001b[0m         labels\u001b[38;5;241m=\u001b[39mlabels,\n\u001b[0;32m   5583\u001b[0m         axis\u001b[38;5;241m=\u001b[39maxis,\n\u001b[0;32m   5584\u001b[0m         index\u001b[38;5;241m=\u001b[39mindex,\n\u001b[0;32m   5585\u001b[0m         columns\u001b[38;5;241m=\u001b[39mcolumns,\n\u001b[0;32m   5586\u001b[0m         level\u001b[38;5;241m=\u001b[39mlevel,\n\u001b[0;32m   5587\u001b[0m         inplace\u001b[38;5;241m=\u001b[39minplace,\n\u001b[0;32m   5588\u001b[0m         errors\u001b[38;5;241m=\u001b[39merrors,\n\u001b[0;32m   5589\u001b[0m     )\n",
+      "File \u001b[1;32m~\\anaconda3\\Lib\\site-packages\\pandas\\core\\generic.py:4788\u001b[0m, in \u001b[0;36mNDFrame.drop\u001b[1;34m(self, labels, axis, index, columns, level, inplace, errors)\u001b[0m\n\u001b[0;32m   4786\u001b[0m \u001b[38;5;28;01mfor\u001b[39;00m axis, labels \u001b[38;5;129;01min\u001b[39;00m axes\u001b[38;5;241m.\u001b[39mitems():\n\u001b[0;32m   4787\u001b[0m     \u001b[38;5;28;01mif\u001b[39;00m labels \u001b[38;5;129;01mis\u001b[39;00m \u001b[38;5;129;01mnot\u001b[39;00m \u001b[38;5;28;01mNone\u001b[39;00m:\n\u001b[1;32m-> 4788\u001b[0m         obj \u001b[38;5;241m=\u001b[39m obj\u001b[38;5;241m.\u001b[39m_drop_axis(labels, axis, level\u001b[38;5;241m=\u001b[39mlevel, errors\u001b[38;5;241m=\u001b[39merrors)\n\u001b[0;32m   4790\u001b[0m \u001b[38;5;28;01mif\u001b[39;00m inplace:\n\u001b[0;32m   4791\u001b[0m     \u001b[38;5;28mself\u001b[39m\u001b[38;5;241m.\u001b[39m_update_inplace(obj)\n",
+      "File \u001b[1;32m~\\anaconda3\\Lib\\site-packages\\pandas\\core\\generic.py:4830\u001b[0m, in \u001b[0;36mNDFrame._drop_axis\u001b[1;34m(self, labels, axis, level, errors, only_slice)\u001b[0m\n\u001b[0;32m   4828\u001b[0m         new_axis \u001b[38;5;241m=\u001b[39m axis\u001b[38;5;241m.\u001b[39mdrop(labels, level\u001b[38;5;241m=\u001b[39mlevel, errors\u001b[38;5;241m=\u001b[39merrors)\n\u001b[0;32m   4829\u001b[0m     \u001b[38;5;28;01melse\u001b[39;00m:\n\u001b[1;32m-> 4830\u001b[0m         new_axis \u001b[38;5;241m=\u001b[39m axis\u001b[38;5;241m.\u001b[39mdrop(labels, errors\u001b[38;5;241m=\u001b[39merrors)\n\u001b[0;32m   4831\u001b[0m     indexer \u001b[38;5;241m=\u001b[39m axis\u001b[38;5;241m.\u001b[39mget_indexer(new_axis)\n\u001b[0;32m   4833\u001b[0m \u001b[38;5;66;03m# Case for non-unique axis\u001b[39;00m\n\u001b[0;32m   4834\u001b[0m \u001b[38;5;28;01melse\u001b[39;00m:\n",
+      "File \u001b[1;32m~\\anaconda3\\Lib\\site-packages\\pandas\\core\\indexes\\base.py:7070\u001b[0m, in \u001b[0;36mIndex.drop\u001b[1;34m(self, labels, errors)\u001b[0m\n\u001b[0;32m   7068\u001b[0m \u001b[38;5;28;01mif\u001b[39;00m mask\u001b[38;5;241m.\u001b[39many():\n\u001b[0;32m   7069\u001b[0m     \u001b[38;5;28;01mif\u001b[39;00m errors \u001b[38;5;241m!=\u001b[39m \u001b[38;5;124m\"\u001b[39m\u001b[38;5;124mignore\u001b[39m\u001b[38;5;124m\"\u001b[39m:\n\u001b[1;32m-> 7070\u001b[0m         \u001b[38;5;28;01mraise\u001b[39;00m \u001b[38;5;167;01mKeyError\u001b[39;00m(\u001b[38;5;124mf\u001b[39m\u001b[38;5;124m\"\u001b[39m\u001b[38;5;132;01m{\u001b[39;00mlabels[mask]\u001b[38;5;241m.\u001b[39mtolist()\u001b[38;5;132;01m}\u001b[39;00m\u001b[38;5;124m not found in axis\u001b[39m\u001b[38;5;124m\"\u001b[39m)\n\u001b[0;32m   7071\u001b[0m     indexer \u001b[38;5;241m=\u001b[39m indexer[\u001b[38;5;241m~\u001b[39mmask]\n\u001b[0;32m   7072\u001b[0m \u001b[38;5;28;01mreturn\u001b[39;00m \u001b[38;5;28mself\u001b[39m\u001b[38;5;241m.\u001b[39mdelete(indexer)\n",
+      "\u001b[1;31mKeyError\u001b[0m: \"['NEW (Sum of X and Z)'] not found in axis\""
+     ]
+    }
+   ],
+   "source": [
+    "print(\"\\n A column i created by assigning it in relation to an existin column\\n\",'-'*75,sep='')\n",
+    "df['NEW']=df['X']+df['Z']\n",
+    "df['NEW(Sum of X and Z)'] = df['X']+df['Z']\n",
+    "print(df)\n",
+    "print(\"\\nA column is dropped by using df.drop()method \\n\",'-'*55,sep='')\n",
+    "df = df.drop('NEW', axis=1)\n",
+    "print(df)\n",
+    "df1=df.drop('A')\n",
+    "print(\"\\n A row (index) is dropped by using df.drop()method and axis=0\\n\",'-'*65,sep='')\n",
+    "print(df1)\n",
+    "print(\"\\n An in-place change can be done by making inplace =True  in the drop method \\n\",'-'*75,sep='')\n",
+    "df.drop('NEW (Sum of X and Z)', axis=1, inplace=True)\n",
+    "print(df)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "72b6b275-3133-4425-a91f-51040b3c2182",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3 (ipykernel)",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.12.4"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}
